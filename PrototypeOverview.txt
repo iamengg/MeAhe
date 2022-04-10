@@ -1,0 +1,17 @@
+Prototype overview - App name - MeAhe 	
+	MeAhe - Monitoring, Logging, First aid for heart attack.(Hardware + software device)
+	HA - Heart attack 
+	
+	Features - 
+	Heart health module - 
+		troponin test - Not supportedd yet ( to check cells from damaged heart after heart attack)
+		ecgClassifier(In MeAhe keeps receiving signals (ECG data) of heart activity (Continously or at every interval say 10 seconds)
+			ecgClassifier service will classify signal to HA(HApositive or not )
+	
+			if HApositive signal will go to action api  
+			action api - notification on phone 
+					- Alarm will start sounding 
+					- First aid will popup on display of MeAhe 
+					- Signal will go to ambulance 
+								
+								
