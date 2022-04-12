@@ -1,17 +1,19 @@
-Prototype overview - App name - MeAhe 	
-	MeAhe - Monitoring, Logging, First aid for heart attack.(Hardware + software device)
-	HA - Heart attack 
-	
-	Features - 
-	Heart health module - 
-		troponin test - Not supportedd yet ( to check cells from damaged heart after heart attack)
-		ecgClassifier(In MeAhe keeps receiving signals (ECG data) of heart activity (Continously or at every interval say 10 seconds)
-			ecgClassifier service will classify signal to HA(HApositive or not )
-	
-			if HApositive signal will go to action api  
-			action api - notification on phone 
-					- Alarm will start sounding 
-					- First aid will popup on display of MeAhe 
-					- Signal will go to ambulance 
+MeAhe - Monitoring, Logging, First aid for heart attack.(Hardware + software device)
+HA - Heart attack 
+Features - Heart health module - 
+MeAhe keeps monitoring health, If signal is detected as (fatal) then it provides recommendations for first aid, start monitoring side effets of that or if needed larger dose of recommendated drugs, Syncs & updates it’s db with recommendations & decision making pmtrs from cloud based services, Also sends events data to cloud based eventDB which wil be used to analyze event.
+The Prototype simulates Heart related anomaly , analyses signal & recommends first aid & takes action
+1) ecgClassifier(In MeAhe keeps receiving signals (ECG data) of heart activity (Continously or at every interval say 10 seconds)
+    ecgClassifier service will classify signal to HA(HApositive or not )
+2 if HApositive signal will go to action api  
+3)Actions
+    First Aid 
+i)aspirin, nitroglycerene dose
+ii) Troponin test – hand held device can which will be integrated with sanjay - Not supportedd yet ( to check cells presence in blood from damaged heart after heart attack)
+    Notification on phone 
+   Alarm will start sounding 
+   First aid will popup on display of MeAhe 
+   Signal will go to ambulance 
+4)System triggeres monitoring api – Which is for monitoring side effects or effective ness of first aid & if needed then increase dose
 								
 								
