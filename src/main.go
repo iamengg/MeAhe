@@ -34,6 +34,7 @@ var signalDB map[int]string = map[int]string{
 }
 
 var eventsStore map[string][]int = make(map[string][]int, 0)
+var mReports map[string]string = make(map[string]string, 0)
 
 func classifySignal(signal int) int {
 	res := harrestSignal(signal)
@@ -76,7 +77,7 @@ func SendSignal(sgType string, intensity int) {
 	if eventsCnt > 1 {
 		cur := events[eventsCnt]
 		diffMin := cur.Sub(events[eventsCnt-1]).Minutes()
-		if int(diffMin) < PositiveSignalInterval && signal != "Harrest" {
+		if int(diffMin) < PositiveSignalInterval && sgType != "Harrest" {
 			//fmt.Printf("Received one more signal within %d minutes\n", PositiveSignalInterval)
 			return
 		}
@@ -138,4 +139,20 @@ func sendCalls() {
 		}
 	}
 	wg.Done()
+}
+
+func getReports() {
+	m := ReadReports()
+	for k, v := range m {
+		m[k] = v
+	}
+}
+
+func ReadReports() map[string]string {
+	m := map[string]string{}
+	m["allergy"] = "nitroglycerene"
+	m["monitor"] = "cholesterol"
+	m["deficiency"] = "B12"
+
+	return m
 }
